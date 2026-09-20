@@ -11,7 +11,7 @@ Se utiliza Basic Authentication para proteger los endpoints, ya que no se dispon
 
 # Siguiente iteración
 
-1. Creación de endpoint para obtener la lista de pagos procesados: **GET /payments**.
+1. Incorporación de filtros y paginación en la consulta de los pagos procesados: **GET /payments**.
 2. Creación de pruebas unitarias completas para toda la aplicación.
 
 # Instrucciones de ejecución de proyecto
