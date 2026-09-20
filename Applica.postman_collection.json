@@ -1,0 +1,53 @@
+{
+  "info": {
+    "_postman_id": "33b2753a-dea1-4d31-804d-4046f105fc17",
+    "name": "Applica",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "11723339"
+  },
+  "item": [
+    {
+      "name": "/payments",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "applica",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "4pl1c42026!",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"id\": 10001,\r\n    \"cardNumber\": \"4111111111111111\",\r\n    \"cvv\": \"810\",\r\n    \"dueDate\": \"092030\",\r\n    \"cardName\": \"Leonel Messi\",\r\n    \"customerId\": 203,\r\n    \"amount\": 225.60,\r\n    \"currency\": \"USD\",\r\n    \"timestamp\": \"2026-09-16T20:51:00\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/applica-payment-service/payments",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "applica-payment-service",
+            "payments"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
