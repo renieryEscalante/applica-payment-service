@@ -1,5 +1,7 @@
 package com.applica.service.impl;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +50,16 @@ public class PaymentImpl implements PaymentService {
 			throw new PaymentException(e.getMessage(), HttpStatus.CONFLICT.value());
 		}
 		return response;
+	}
+
+	@Override
+	public List<Payment> getPayments() {
+		try {
+			return paymentRepository.findAll();
+		} catch (Exception e) {
+			LOGG.error("Ocurrió una excepción mientras se intentaba obtener los pagos: ", e);
+			throw new PaymentException(e.getMessage(), HttpStatus.CONFLICT.value());
+		}
 	}
 	
 	private Payment fillPayment(PaymentDto paymentDto) {

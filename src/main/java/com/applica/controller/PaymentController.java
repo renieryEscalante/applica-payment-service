@@ -1,14 +1,18 @@
 package com.applica.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.applica.dto.PaymentDto;
 import com.applica.dto.Response;
+import com.applica.model.Payment;
 import com.applica.service.PaymentService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -44,6 +48,25 @@ public class PaymentController {
 		Response response;
 		response = paymentService.makePayment(payment);
 		return new ResponseEntity<Response>(response, HttpStatus.OK);
+	}
+
+	@Operation(
+			summary = "Obtener pagos procesados",
+			description = "Obtiene todos los pagos almacenados en la base de datos."
+	)
+	@ApiResponses({
+			@ApiResponse(
+				responseCode = "200",
+				description = "Pagos obtenidos correctamente"
+			),
+			@ApiResponse(
+				responseCode = "401",
+				description = "No autorizado"
+			)
+	})
+	@GetMapping("/payments")
+	public ResponseEntity<List<Payment>> getPayments() {
+		return new ResponseEntity<List<Payment>>(paymentService.getPayments(), HttpStatus.OK);
 	}
 	
 }
