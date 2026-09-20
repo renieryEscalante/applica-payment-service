@@ -48,6 +48,40 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "/payments",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "applica",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "4pl1c42026!",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/applica-payment-service/payments",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "applica-payment-service",
+            "payments"
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }
